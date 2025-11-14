@@ -139,86 +139,91 @@ public:
 
 class Car :public Transport
 {
-	string a;
-	string b;
+	string fuel;
+	string gearBox;
 public:
 	Car() {}
-	Car(string n, int y, double s, double w, int p, string _a, string _b)
+	Car(string n, int y, double s, double w, int p, string f, string g)
 	{
 		name = n;
 		year = y;
 		speed = s;
 		weight = w;
 		numOfPassengers = p;
-		a = _a;
-		b = _b;
+		fuel = f;
+		gearBox = g;
 	}
 
-	string GetA() { return a; }
-	void SetA(string _a) { a = _a; }
+	string GetFuel() { return fuel; }
+	void SetFuel(string f) { fuel = f; }
 
-	string GetB() { return b; }
-	void SetB(string _b) { b = _b; }
+	string GetGearBox() { return gearBox; }
+	void SetGearBox(string g) { gearBox = g; }
 
 	void Print()
 	{
 		Transport::Print();
-		cout << "A: " << a << "B: " << b << endl;
+		cout << "Fuel: " << fuel << "\nGearBox: " << gearBox << endl;
 	}
 };
 
 class Bicycle :public Transport
 {
+	double wheelDiameter;
 	string type;
 public:
 	Bicycle() {}
-	Bicycle(string n, int y, double s, double w, int p, string t)
+	Bicycle(string n, int y, double s, double w, int p, string t, double wd)
 	{
 		name = n;
 		year = y;
 		speed = s;
 		weight = w;
 		numOfPassengers = p;
+		wheelDiameter = wd;
 		type = t;
 	}
 
 	string GetType() { return type; }
 	void SetType(string t) { type = t; }
 
+	double GetWheelDiameter() { return wheelDiameter; }
+	void SetWheelDiameter(double wd) { wheelDiameter = wd; }
+
 	void Print()
 	{
 		Transport::Print();
-		cout << "Type: " << type << endl;
+		cout << "Type: " << type << "\nWheel diameter: " << wheelDiameter << endl;
 	}
 };
 
 class Tank :public Transport
 {
-	string a;
-	string b;
+	double firepower;
+	string armor;
 public:
 	Tank() {}
-	Tank(string n, int y, double s, double w, int p, string _a, string _b)
+	Tank(string n, int y, double s, double w, int p, double f, string a)
 	{
 		name = n;
 		year = y;
 		speed = s;
 		weight = w;
 		numOfPassengers = p;
-		a = _a;
-		b = _b;
+		firepower = f;
+		armor = a;
 	}
 
-	string GetA() { return a; }
-	void SetA(string _a) { a = _a; }
+	double GetFirepower() { return firepower; }
+	void SetFirepower(double f) { firepower = f; }
 
-	string GetB() { return b; }
-	void SetB(string _b) { b = _b; }
+	string GetArmor() { return armor; }
+	void SetArmor(string a) { armor = a; }
 
 	void Print()
 	{
 		Transport::Print();
-		cout << "A: " << a << "B: " << b << endl;
+		cout << "Firepower: " << firepower << "\nArmor: " << armor << endl;
 	}
 	void Shoot()
 	{
@@ -229,8 +234,8 @@ public:
 int main()
 {
 	Car obj1("MyCar", 2008, 300, 200, 2, "a", "b");
-	Bicycle obj2("MyBicycle", 2009, 1000, 300, 1, "bicycle");
-	Tank obj3("MyTank", 2010, 500, 400, 4,"a","b");
+	Bicycle obj2("MyBicycle", 2009, 1000, 300, 1, "bicycle", 34);
+	Tank obj3("MyTank", 2010, 500, 400, 4, 20,"b");
 	obj1.Print();
 	obj2.Print();
 	obj3.Print();
